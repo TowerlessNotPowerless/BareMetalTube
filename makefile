@@ -2,6 +2,7 @@
 #	makefile for CoPro Bat'n'Ball
 #	=================================
 
+COPY_FILE = copy
 CREATE_DIRECTORY = mkdir
 ASM = ca65
 LINK = ld65 -o
@@ -11,6 +12,9 @@ LD_FLAGS = -C beeb.cfg "$(TEMP_FOLDER)\$(COMPONENT_FILENAME).o" -S 000000 --cfg-
 
 TEMP_FOLDER = .\asm-temp
 VDFS_DISC_FOLDER = .\vdfs
+VDFS_INPUT_FOLDER = .\src\vdfsInput
+
+BEEB_FILENAME_AUTO_BOOT = !Boot
 
 # for code/data integrity we will include a build timestamp
 # in many of the files
@@ -20,7 +24,9 @@ FILENAME_PREFIX_TIMESTAMP = timestamp
 
 all: \
 	directories  \
-	$(TEMP_FOLDER)\$(FILENAME_PREFIX_TIMESTAMP).dat
+	$(TEMP_FOLDER)\$(FILENAME_PREFIX_TIMESTAMP).dat \
+	$(VDFS_DISC_FOLDER)\$(BEEB_FILENAME_AUTO_BOOT) \
+	$(VDFS_DISC_FOLDER)\$(BEEB_FILENAME_AUTO_BOOT).inf \
 
 directories: \
 	$(TEMP_FOLDER) \
@@ -50,3 +56,21 @@ $(TEMP_FOLDER)\$(FILENAME_PREFIX_TIMESTAMP).dat: \
 	$(ASM) $(CA_FLAGS)
 	$(LINK) $(TEMP_FOLDER)\$(COMPONENT_FILENAME).dat $(LD_FLAGS)
 
+#========================================
+#	!Boot
+#========================================
+
+$(VDFS_DISC_FOLDER)\$(BEEB_FILENAME_AUTO_BOOT).inf: \
+	$(VDFS_INPUT_FOLDER)\$(BEEB_FILENAME_AUTO_BOOT).inf \
+
+	$(COPY_FILE) $(VDFS_INPUT_FOLDER)\$(BEEB_FILENAME_AUTO_BOOT).inf $(VDFS_DISC_FOLDER)\$(BEEB_FILENAME_AUTO_BOOT).inf
+
+#========================================
+
+$(VDFS_DISC_FOLDER)\$(BEEB_FILENAME_AUTO_BOOT): \
+	$(VDFS_INPUT_FOLDER)\$(BEEB_FILENAME_AUTO_BOOT) \
+	$(VDFS_DISC_FOLDER)\$(BEEB_FILENAME_AUTO_BOOT).inf \
+	
+	$(COPY_FILE) $(VDFS_INPUT_FOLDER)\$(BEEB_FILENAME_AUTO_BOOT) $(VDFS_DISC_FOLDER)\$(BEEB_FILENAME_AUTO_BOOT)
+
+#========================================
