@@ -27,7 +27,7 @@ You will need:
 * NodeJS (any recent version should be fine, and we are currently using v22.16.0 for no particular reason)
 * A BBC Micro emulator with VDFS and 65x family 2nd Processor support (we use [b-em](https://b-em.bbcmicro.com/))
 
-The supplied [makefile](./src/makefile) has been written for Windows and some of the paths/commands may need to be adjusted in order to get it to build on Linux.
+The supplied [makefile](./makefile) has been written for Windows and some of the paths/commands may need to be adjusted in order to get it to build on Linux.
 
 From the command line, inside the root folder, execute:
 
