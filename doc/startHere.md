@@ -6,6 +6,8 @@ There's a reason we're using Exec instead of Run for the boot option; ReCo doesn
 
 Letting that happen and then *EXEC being executed gets around that flaw.
 
+It's not actually relevant for the boot program that runs on the host but it would hurt us later.
+
 ## Code and data integrity
 
 To save wasting time investigating when someone is intentionally trying to be 'clever' with the loader build from Tuesday and the actual game built on Wednesday and says "it's not working", we'll include a binary timestamp in each file that can be validated by each part. Pretty much every file will include that.
