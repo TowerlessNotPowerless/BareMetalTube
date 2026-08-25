@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Tools for building the copro version of the BBC Micro Welcome package game, Bat'n'Ball",
   "scripts": {
-    "createExports": "node buildTools/createExports.js"
+    "createExports": "node buildTools/createExports.js",
+    "createRleData": "node buildTools/createRleData.js"
   },
   "author": "Sam Skivington and Rap Unzel",
   "license": "ISC"
