@@ -43,6 +43,7 @@
 .include "data/introScreen/CrtcList.asm"
 .include "data/introScreen/NulaList.asm"
 .include "data/introScreen/PaletteList.asm"
+.include "data/introScreen/Roundel.asm"
 
 	;	this will be used to check that the next file
 	;	in the boot sequence is from the same build
