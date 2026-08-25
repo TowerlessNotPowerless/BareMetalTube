@@ -20,6 +20,10 @@ Now that's all in place we start preparing the screen in `SetUpIntroScreen`. Fir
 
 Added the artwork for the intro screen red circle. I presume DfT (Department for Transport) will be ok with us using our design. So what we're going to do is render half of it as a MODE 1 image (palette slightly adjusted for a reason that will become apparent later on), and use that, after being thrown through a RLE-ish algorithm, to draw the intro screen, un-RLE-ing it at runtime.
 
+Two more tools I should mentione here. First is the one that takes the PNG and converts it into Beeb MODE 1 graphics data and another that does the kinda-RLE algorithm on it. Both we be included in that tools folder mentioned above.
+
+
+
 #### Why can't we set the boot option to *RUN?
 
 ReCo copros don't behave according to the Acorn-defined standard, so the first program you attempt to run on the parasite results in it installing its own version of BASIC and running that instead.
