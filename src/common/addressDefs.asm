@@ -1,3 +1,5 @@
+	;	this file is for game-specific address definitions
+
 BOOT_START_ADDRESS	equ	$2000
 BOOT_ZP_ADDRESS_START	equ	$70
 BOOT_ZP_ADDRESS_END	equ	$8f

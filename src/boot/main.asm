@@ -9,7 +9,27 @@
 .code
 .org	BOOT_START_ADDRESS
 
+	;	it's easy to forget the FFFF part of the load and
+	;	exec addresses so we'll check which side of the Tube
+	;	we're actually running on
+	jsr	CheckTubeSide
+
+	;	to ensure we have enough memory and a usable screen size,
+	;	prevent ourselves from running on some machine types
+	jsr	CheckMachineType
+
+	;	then, of course, we need to check whether we have a
+	;	copro attached. We'll check its type later on
+	jsr	CheckTubePresence
+
+	;	once those checks have passed, we're ok to continue
+	
 	rts
+
+.include "functions/CheckTubeSide.asm"
+.include "functions/CheckMachineType.asm"
+.include "functions/CheckTubePresence.asm"
+.include "functions/ReadWriteOsbyte.asm"
 
 	;	this will be used to check that the next file
 	;	in the boot sequence is from the same build

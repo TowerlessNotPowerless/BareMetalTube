@@ -1,3 +1,6 @@
+	;	this file is for Beeb OS definitions, a fair amount of
+	;	which will probably not be used
+
 OSWRSC	equ	$ffb3
 OSRDSC	equ	$ffb9
 OSRDRM	equ	$ffb9
@@ -42,7 +45,6 @@ VIDEO_ULA_PALETTE_REGISTER	equ	SHEILA + $21
 
 VIDEO_NULA_CONTROL_REGISTER	equ	SHEILA + $22
 VIDEO_NULA_PALETTE_REGISTER	equ	SHEILA + $23
-
 
 SYSTEM_VIA_BASE		equ	SHEILA + $40
 SYSTEM_VIA_PORT_B		equ	SYSTEM_VIA_BASE + $0

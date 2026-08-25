@@ -1,3 +1,5 @@
+	;	this file is for making the assembler accept the syntax we want to use
+
 .feature	labels_without_colons
 .feature	org_per_seg
 
