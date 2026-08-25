@@ -10,11 +10,13 @@ Once that's running we perform some environment checks (which side of the Tube w
 
 Now we can say hello to the user. We spent an unreasonable amount of time deciding how it should look, and because this is a Tube game we wanted something original that stands out and absolutely, categorically does **not** resemble any existing trademarks. So we went with a bold red circle filled in white, a horizontal blue bar across the middle, and crisp white text. Totally original. Completely unique - any resemblance to a well‑known transport logo is purely coincidental and probably your fault.
 
-Now what we _don't_ want to do is load a huge file over the whole screen track by track, because that looks rubbish. Instead, we'll switch the screen off for a moment, build it programmatically and switch the screen back on again afterwards.
+Now what we _don't_ want to do is load a huge file over the whole screen track by track, because that looks a bit rubbish. Instead, we'll switch the screen off for a moment, build it programmatically and switch the screen back on again afterwards.
 
 We've now reached the point where we start caring about memory usage, so we're going to fiddle around with the CRTC a bit to free up some space.
 
 The first step, though, is to create the character definitions for printing the game's name and other messages on the intro screen. We've built a C# tool for creating those, that loads a PNG image we made in GIMP and separates out the characters. We'll create a tools folder in a bit and pop that in there. For now, we'll just include the output in this project.
+
+Now that's all in place we start preparing the screen. First we switch to MODE 1 using OSWRCH so the OS can do the grunt work. Then we switch off the screen, resett NuLA, set up our fallback palette for those who don't have NuLA, and reconfigure the screen dimensions ready for when we've finished drawing our 'unique' masterpiece.
 
 
 #### Why can't we set the boot option to *RUN?

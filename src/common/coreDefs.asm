@@ -6,5 +6,7 @@
 
 .include "beebOsDefs.asm"
 .include "addressDefs.asm"
+.include "macros.asm"
+.include "introScreenDefs.asm"
 
 .include "gameDefs.asm"

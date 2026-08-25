@@ -23,18 +23,26 @@
 	jsr	CheckTubePresence
 
 	;	once those checks have passed, we're ok to continue
-	
+
+	jsr	SetUpIntroScreen
+
 	rts
 
 .include "functions/CheckTubeSide.asm"
 .include "functions/CheckMachineType.asm"
 .include "functions/CheckTubePresence.asm"
 .include "functions/ReadWriteOsbyte.asm"
+.include "functions/SetUpIntroScreen.asm"
+
+.include "../common/functions/WriteCrtcRegister.asm"
 
 .include "data/introScreen/LogoCharacterDefinitions.asm"
 .include "data/introScreen/LogoCharacterWidths.asm"
 .include "data/introScreen/LogoCharacterPointers.asm"
 .include "data/introScreen/LogoStringList.asm"
+.include "data/introScreen/CrtcList.asm"
+.include "data/introScreen/NulaList.asm"
+.include "data/introScreen/PaletteList.asm"
 
 	;	this will be used to check that the next file
 	;	in the boot sequence is from the same build
