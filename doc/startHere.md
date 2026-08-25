@@ -2,9 +2,11 @@
 
 ## Why not just set the boot option to *RUN?
 
-There's a reason we're using Exec instead of Run for the boot option; ReCo doesn't behave according to the Acorn-defined standard, so the first program you attempt to run on the parasite results in it installing its own version of BASIC and running that instead. I've posted details elsewhere on here before.
+There's a reason we're using Exec instead of Run for the boot option; ReCo doesn't behave according to the Acorn-defined standard, so the first program you attempt to run on the parasite results in it installing its own version of BASIC and running that instead.
 
 Letting that happen and then *EXEC being executed gets around that flaw.
+
+It's not actually relevant for the boot program that runs on the host but it would hurt us later.
 
 ## Code and data integrity
 
