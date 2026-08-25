@@ -18,7 +18,7 @@ The first step, though, is to create the character definitions for printing the 
 
 Now that's all in place we start preparing the screen in `SetUpIntroScreen`. First we switch to MODE 1 using OSWRCH so the OS can do the grunt work. Then we switch off the screen, reset and configure NuLA, set up our fallback palette for those who don't have NuLA, and reconfigure the screen dimensions ready for when we've finished drawing our 'unique' masterpiece.
 
-Added the artwork for the intro screen red circle. I presume DfT will be ok with us using our design. So what we're going to do is render half of it as a MODE 1 image (palette slightly adjusted for a reason that will become apparent later on), and use that, after being thrown through a RLE-ish algorithm, to draw the intro screen, un-RLE-ing it at runtime.
+Added the artwork for the intro screen red circle. I presume DfT (Department for Transport) will be ok with us using our design. So what we're going to do is render half of it as a MODE 1 image (palette slightly adjusted for a reason that will become apparent later on), and use that, after being thrown through a RLE-ish algorithm, to draw the intro screen, un-RLE-ing it at runtime.
 
 #### Why can't we set the boot option to *RUN?
 
