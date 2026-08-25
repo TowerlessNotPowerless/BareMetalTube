@@ -52,10 +52,10 @@ $(VDFS_DISC_FOLDER):
 #========================================
 
 $(TEMP_FOLDER)\$(FILENAME_PREFIX_TIMESTAMP).dat: \
-	$(wildcard ./*/*.*) \
-	$(wildcard ./*/*/*.*) \
-	$(wildcard ./*/*/*/*.*) \
-	$(wildcard ./*/*/*/*/*.*) \
+	$(wildcard ./src/*/*.*) \
+	$(wildcard ./src/*/*/*.*) \
+	$(wildcard ./src/*/*/*/*.*) \
+	$(wildcard ./src/*/*/*/*/*.*) \
 
 	$(eval COMPONENT_FILENAME := $(FILENAME_PREFIX_TIMESTAMP))
 	$(ASM) $(CA_FLAGS)
@@ -100,10 +100,10 @@ $(VDFS_DISC_FOLDER)\$(BEEB_FILENAME_BOOT): \
 
 $(TEMP_FOLDER)\$(FILENAME_PREFIX_BOOT).dat: \
 	$(TEMP_FOLDER)\$(FILENAME_PREFIX_TIMESTAMP).dat \
-	$(wildcard ./$(FILENAME_PREFIX_BOOT)/*.*) \
-	$(wildcard ./$(FILENAME_PREFIX_BOOT)/*/*.*) \
-	$(wildcard ./common/*.*) \
-	$(wildcard ./common/*/*.*) \
+	$(wildcard ./src/$(FILENAME_PREFIX_BOOT)/*.*) \
+	$(wildcard ./src/$(FILENAME_PREFIX_BOOT)/*/*.*) \
+	$(wildcard ./src/common/*.*) \
+	$(wildcard ./src/scommon/*/*.*) \
 
 	$(eval COMPONENT_FILENAME := $(FILENAME_PREFIX_BOOT))
 	$(ASM) $(CA_FLAGS)

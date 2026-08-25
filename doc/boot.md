@@ -4,12 +4,15 @@
 
 Once you've pressed `Shift + Break` we can start loading the game. Unfortunately we [can't set the boot option of the disc to *RUN](#why-cant-we-set-the-boot-option-to-run) so we'll need to *EXEC a !Boot file that runs our actual Boot program.
 
-Once that's running we perform some environment checks (which side of the Tube we're running on, the machine type and copro presence) and can then move on to showing the intro screen.
+Once that's running we perform some environment checks (which side of the Tube we're running on, the machine type and copro presence), exiting with an error message if any pre-requisites are not satisfied, and can then move on to showing the intro screen.
 
 ## The intro screen
 
-Now we can say hello to the user. Deciding how this should appear took quite a bit of time.
+Now we can say hello to the user. We spent an unreasonable amount of time deciding how it should look, and because this is a Tube game we wanted something original that stands out and absolutely, categorically does **not** resemble any existing trademarks. So we went with a bold red circle filled in white, a horizontal blue bar across the middle, and crisp white text. Totally original. Completely unique - any resemblance to a well‑known transport logo is purely coincidental and probably your fault.
 
+Now what we _don't_ want to do is load a huge file over the whole screen track by track, because that looks rubbish. Instead, we'll switch the screen off for a moment, build it programmatically and switch the screen back on again afterwards.
+
+We've now reached the point where we start caring about memory usage, so we're going to fiddle around with the CRTC a bit to free up some space.
 
 
 #### Why can't we set the boot option to *RUN?
