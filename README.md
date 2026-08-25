@@ -31,6 +31,10 @@ The supplied [makefile](./makefile) has been written for Windows and some of the
 
 From the command line, inside the root folder, execute:
 
+(first time only)
+> npm install
+
+(every time)
 > make
 
 The output files will be placed in a folder named `vdfs` at the same level as `src`. Temporary files will be placed in `asm-temp`, also at the same level as `src`.

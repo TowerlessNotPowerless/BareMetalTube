@@ -1,0 +1,15 @@
+# Bare Metal Tube: CoPro Bat'n'Ball
+
+## Under the hood
+
+### Code and data integrity
+
+To save wasting time investigating when someone is intentionally trying to be 'clever' with the loader build from Tuesday and the actual game built on Wednesday and says "it's not working", we'll include a binary timestamp in each file that can be validated by each part. Pretty much every file will include that.
+
+### Exports
+
+Whilst the ca65/ld65 combination does export symbols, it doesn't export them as an asm file for inclusion in subsequent modules, so we have written a JavaScript tool to do that for us. Caveats to this approach:
+
+- You can only export labels
+- You must export the label immediately after defining it
+
