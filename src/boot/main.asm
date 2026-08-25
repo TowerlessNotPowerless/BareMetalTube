@@ -31,6 +31,11 @@
 .include "functions/CheckTubePresence.asm"
 .include "functions/ReadWriteOsbyte.asm"
 
+.include "data/introScreen/LogoCharacterDefinitions.asm"
+.include "data/introScreen/LogoCharacterWidths.asm"
+.include "data/introScreen/LogoCharacterPointers.asm"
+.include "data/introScreen/LogoStringList.asm"
+
 	;	this will be used to check that the next file
 	;	in the boot sequence is from the same build
 Timestamp

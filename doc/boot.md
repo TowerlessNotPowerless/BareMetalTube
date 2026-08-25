@@ -14,6 +14,8 @@ Now what we _don't_ want to do is load a huge file over the whole screen track b
 
 We've now reached the point where we start caring about memory usage, so we're going to fiddle around with the CRTC a bit to free up some space.
 
+The first step, though, is to create the character definitions for printing the game's name and other messages on the intro screen. We've built a C# tool for creating those, that loads a PNG image we made in GIMP and separates out the characters. We'll create a tools folder in a bit and pop that in there. For now, we'll just include the output in this project.
+
 
 #### Why can't we set the boot option to *RUN?
 
