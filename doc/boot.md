@@ -16,7 +16,7 @@ We've now reached the point where we start caring about memory usage, so we're g
 
 The first step, though, is to create the character definitions for printing the game's name and other messages on the intro screen. We've built a C# tool for creating those, that loads a PNG image we made in GIMP and separates out the characters. We'll create a tools folder in a bit and pop that in there. For now, we'll just include the output in this project.
 
-Now that's all in place we start preparing the screen. First we switch to MODE 1 using OSWRCH so the OS can do the grunt work. Then we switch off the screen, resett NuLA, set up our fallback palette for those who don't have NuLA, and reconfigure the screen dimensions ready for when we've finished drawing our 'unique' masterpiece.
+Now that's all in place we start preparing the screen. First we switch to MODE 1 using OSWRCH so the OS can do the grunt work. Then we switch off the screen, reset NuLA, set up our fallback palette for those who don't have NuLA, and reconfigure the screen dimensions ready for when we've finished drawing our 'unique' masterpiece.
 
 
 #### Why can't we set the boot option to *RUN?
