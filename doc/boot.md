@@ -22,7 +22,7 @@ Added the artwork for the intro screen red circle. I presume DfT (Department for
 
 Two more tools I should mention here. First is the one that takes the PNG and converts it into Beeb MODE 1 graphics data and another that does the kinda-RLE algorithm on it. Both will be included in that tools folder mentioned above.
 
-We now have our totally original logo shape appearing on screen and the game name is being drawn onto the blue bar.
+We now have our totally original logo design appearing on screen and the game name is being drawn onto it.
 
 
 #### Why can't we set the boot option to *RUN?
