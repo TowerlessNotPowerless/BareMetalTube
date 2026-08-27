@@ -1,0 +1,34 @@
+TextWindowVdu
+	db	"TNESERP"
+	dw	(INTRO_SCREEN_PRESENT_PIXEL_Y2 >> 8) | ((INTRO_SCREEN_PRESENT_PIXEL_Y2 & $ff) << 8)
+	dw	(INTRO_SCREEN_PRESENT_PIXEL_X2 >> 8) | ((INTRO_SCREEN_PRESENT_PIXEL_X2 & $ff) << 8)
+	db	4	;	move graphics cursor
+	db	VDU_PLOT
+
+	db	3
+	db	0
+	db	VDU_DEFINE_GRAPHICS_COLOUR
+
+	;db	VDU_WRITE_TEXT_AT_TEXT_CURSOR
+
+	db	"maS & paR"
+
+	dw	(INTRO_SCREEN_PRESENT_PIXEL_Y >> 8) | ((INTRO_SCREEN_PRESENT_PIXEL_Y & $ff) << 8)
+	dw	(INTRO_SCREEN_PRESENT_PIXEL_X >> 8) | ((INTRO_SCREEN_PRESENT_PIXEL_X & $ff) << 8)
+	db	4	;	move graphics cursor
+	db	VDU_PLOT
+
+	db	VDU_WRITE_TEXT_AT_GRAPHICS_CURSOR
+
+	db	2
+	db	0
+	db	VDU_DEFINE_GRAPHICS_COLOUR
+
+	db	VDU_CLEAR_SCREEN
+
+	db	6
+	db	39
+	db	7
+	db	0
+	db	VDU_DEFINE_TEXT_WINDOW
+TextWindowVdu_end
