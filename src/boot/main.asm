@@ -48,7 +48,7 @@
 	lda	#CRTC_INTERLACE_DELAY_DISABLE_DISPLAY_ON | CRTC_INTERLACE_DELAY_DISABLE_CURSOR_OFF
 	jsr	WriteCrtcRegister
 
-	rts
+	FREEZE
 
 .include "functions/CheckTubeSide.asm"
 .include "functions/CheckMachineType.asm"

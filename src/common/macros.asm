@@ -1,3 +1,11 @@
+.macro FREEZE
+.ifpc02
+	bra	*
+.else
+	jmp	*
+.endif
+.endmacro
+
 .macro RESET_NULA
 
 	lda	#$40
