@@ -28,9 +28,9 @@ Two more tools we should mention here. First is the one that takes the PNG and c
 
 We now have our totally original logo design appearing on screen and the game name is being drawn onto it, courtesy of `DrawRoundel` and `DrawString`. 
 
-We're now ready to replace the host's Tube handler code with our own.
+We're now ready to replace the host's [Tube handler](#custom-host-tube-handler) code with our own.
 
-## Replacement host Tube handler
+## Custom host Tube handler
 
 
 
