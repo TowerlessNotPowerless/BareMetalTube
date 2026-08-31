@@ -1,8 +1,8 @@
 .macro FREEZE
-.ifpc02
-	bra	*
-.else
+.ifp02
 	jmp	*
+.else
+	bra	*
 .endif
 .endmacro
 
@@ -38,12 +38,12 @@ SCREEN_COLUMNS_PER_ROW	.set	160
 	;	nope - not solid screen layout
 .endif
 .if (modeEx = 4)
-SCREEN_PIXELS_PER_BYTE	.set	4
+SCREEN_PIXELS_PER_BYTE	.set	8
 SCREEN_COLUMNS_PER_ROW	.set	320
 .endif
 .if (modeEx = 5)
-SCREEN_PIXELS_PER_BYTE	.set	2
-SCREEN_COLUMNS_PER_ROW	.set	640
+SCREEN_PIXELS_PER_BYTE	.set	4
+SCREEN_COLUMNS_PER_ROW	.set	160
 .endif
 .if (modeEx = 6)
 	;	nope - not solid screen layout
