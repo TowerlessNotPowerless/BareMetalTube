@@ -66,6 +66,7 @@
 .include "functions/DrawString.asm"
 .include "functions/DisableThingsThatWillSpoilTheExperience.asm"
 .include "functions/InstallHooks.asm"
+.include "functions/HooksSource.asm"
 
 .include "../common/functions/WriteCrtcRegister.asm"
 
@@ -82,7 +83,6 @@
 .include "data/introScreen/PresentsText.asm"
 .include "data/introScreen/DrawTextPixelAnd.asm"
 .include "data/introScreen/DrawTextPixelOr.asm"
-.include "data/introScreen/HooksSource.asm"
 
 	;	this will be used to check that the next file
 	;	in the boot sequence is from the same build

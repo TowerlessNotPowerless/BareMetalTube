@@ -24,6 +24,9 @@ BEEB_FILENAME_BOOT = Boot
 # in many of the files
 FILENAME_PREFIX_TIMESTAMP = timestamp
 FILENAME_PREFIX_BOOT = boot
+# we will build the host tube handler as a separate component, but we will eventually
+# include it inside the boot code as a binary blob
+FILENAME_PREFIX_HOST_TUBE_HANDLER = hostTubeHandler
 
 .PHONY: directories
 
@@ -100,6 +103,7 @@ $(VDFS_DISC_FOLDER)\$(BEEB_FILENAME_BOOT): \
 
 $(TEMP_FOLDER)\$(FILENAME_PREFIX_BOOT).dat: \
 	$(TEMP_FOLDER)\$(FILENAME_PREFIX_TIMESTAMP).dat \
+	$(TEMP_FOLDER)\$(FILENAME_PREFIX_HOST_TUBE_HANDLER).dat \
 	$(wildcard ./src/$(FILENAME_PREFIX_BOOT)/*.*) \
 	$(wildcard ./src/$(FILENAME_PREFIX_BOOT)/*/*.*) \
 	$(wildcard ./src/common/*.*) \
@@ -111,3 +115,20 @@ $(TEMP_FOLDER)\$(FILENAME_PREFIX_BOOT).dat: \
 	$(CREATE_EXPORTS)
 
 #========================================
+#	Host Tube Handler
+#========================================
+
+$(TEMP_FOLDER)\$(FILENAME_PREFIX_HOST_TUBE_HANDLER).dat: \
+	$(TEMP_FOLDER)\$(FILENAME_PREFIX_TIMESTAMP).dat \
+	$(wildcard ./src/$(FILENAME_PREFIX_HOST_TUBE_HANDLER)/*.*) \
+	$(wildcard ./src/$(FILENAME_PREFIX_HOST_TUBE_HANDLER)/*/*.*) \
+	$(wildcard ./src/common/*.*) \
+	$(wildcard ./src/scommon/*/*.*) \
+
+	$(eval COMPONENT_FILENAME := $(FILENAME_PREFIX_HOST_TUBE_HANDLER))
+	$(ASM) $(CA_FLAGS)
+	$(LINK) $(TEMP_FOLDER)\$(COMPONENT_FILENAME).dat $(LD_FLAGS)
+	$(CREATE_EXPORTS)
+
+#========================================
+
