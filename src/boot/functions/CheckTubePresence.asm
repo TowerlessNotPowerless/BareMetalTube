@@ -1,10 +1,7 @@
 .proc CheckTubePresence
 
 	;	is there a co-pro?
-	lda	#OSBYTE_READ_WRITE_TUBE_PRESENCE_FLAG
-	jsr	ReadWriteOsbyte
-
-	txa
+	lda	SYSTEM_VARIABLES + OSBYTE_READ_WRITE_TUBE_PRESENCE_FLAG - OSBYTE_SYSTEM_VARIABLES_BASE
 	bpl	_noTube
 
 	rts

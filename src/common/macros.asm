@@ -13,6 +13,13 @@
 
 .endmacro
 
+.macro FORCE_COLD_START
+
+	lda	#$7f
+	sta	SYSTEM_VIA_IER
+
+.endmacro
+
 .macro SET_SCREEN_MODE_CONSTANTS mode
 modeEx	.set	mode & 7
 .if (modeEx = 0)

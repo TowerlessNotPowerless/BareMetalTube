@@ -23,6 +23,8 @@
 	jsr	CheckTubePresence
 
 	;	once those checks have passed, we're ok to continue
+	jsr	DisableThingsThatWillSpoilTheExperience
+	jsr	InstallHooks
 
 	;	turn the screen off and set up the new dimensions
 	jsr	SetUpIntroScreen
@@ -32,9 +34,10 @@
 	sta	ZP_INTRO_SCREEN_DRAW_TYPE
 	jsr	DrawRoundel
 
-	jsr	DrawPresents
+	;	draw the top message
+	jsr	DrawPresentsText
 
-	;	draw message on the blue bar
+	;	draw game name on the blue bar
 	lda	#$78	;	row
 	ldx	#strLogo1 & $ff
 	ldy	#strLogo1 >> 8
@@ -48,6 +51,8 @@
 	lda	#CRTC_INTERLACE_DELAY_DISABLE_DISPLAY_ON | CRTC_INTERLACE_DELAY_DISABLE_CURSOR_OFF
 	jsr	WriteCrtcRegister
 
+	;	we're now ready to replace the Tube handler code
+
 	FREEZE
 
 .include "functions/CheckTubeSide.asm"
@@ -57,8 +62,10 @@
 .include "functions/SetUpIntroScreen.asm"
 .include "functions/DrawRoundel.asm"
 .include "functions/DrawRoundelRow.asm"
-.include "functions/DrawPresents.asm"
+.include "functions/DrawPresentsText.asm"
 .include "functions/DrawString.asm"
+.include "functions/DisableThingsThatWillSpoilTheExperience.asm"
+.include "functions/InstallHooks.asm"
 
 .include "../common/functions/WriteCrtcRegister.asm"
 
@@ -72,9 +79,10 @@
 .include "data/introScreen/Roundel.asm"
 .include "data/introScreen/RedBarOverlayLeft.asm"
 .include "data/introScreen/RedBarOverlayRight.asm"
-.include "data/introScreen/TextWindowVdu.asm"
+.include "data/introScreen/PresentsText.asm"
 .include "data/introScreen/DrawTextPixelAnd.asm"
 .include "data/introScreen/DrawTextPixelOr.asm"
+.include "data/introScreen/HooksSource.asm"
 
 	;	this will be used to check that the next file
 	;	in the boot sequence is from the same build

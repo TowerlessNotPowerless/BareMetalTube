@@ -1,4 +1,4 @@
-TextWindowVdu
+PresentsText
 	db	"TNESERP"
 	dw	(INTRO_SCREEN_PRESENT_PIXEL_Y2 >> 8) | ((INTRO_SCREEN_PRESENT_PIXEL_Y2 & $ff) << 8)
 	dw	(INTRO_SCREEN_PRESENT_PIXEL_X2 >> 8) | ((INTRO_SCREEN_PRESENT_PIXEL_X2 & $ff) << 8)
@@ -31,4 +31,4 @@ TextWindowVdu
 	db	7
 	db	0
 	db	VDU_DEFINE_TEXT_WINDOW
-TextWindowVdu_end
+PresentsText_end

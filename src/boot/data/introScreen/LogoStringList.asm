@@ -4,17 +4,14 @@
 .include "LogoCharacterMap.asm"
 
 strLogo1
-.export strLogo1
 	db	"COPRO BAT'N'BALL"
 	db	$ff
 
 strLogo2
-.export strLogo2
 	db	"TUBE NOT RESPONDING"
 	db	$ff
 
 strLogo3
-.export strLogo3
 	db	"LOADING"
 	db	$ff
 

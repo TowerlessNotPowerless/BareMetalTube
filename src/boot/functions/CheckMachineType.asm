@@ -39,9 +39,8 @@ _maybe
 	bne	_no
 
 	;	check memory size - Model A?
-	lda	#OSBYTE_READ_WRITE_AVAILABLE_RAM
-	jsr	ReadWriteOsbyte
-	cpx	#$40
+	lda	SYSTEM_VARIABLES + OSBYTE_READ_WRITE_AVAILABLE_RAM - OSBYTE_SYSTEM_VARIABLES_BASE
+	cmp	#$40
 	beq	_no
 
 _yes
