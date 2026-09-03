@@ -1,4 +1,5 @@
 .include "../common/coreDefs.asm"
+.include "../../asm-temp/hostTubeHandlerExports.asm"
 
 .zeropage
 	;	play nice with the OS for now
@@ -52,6 +53,7 @@
 	jsr	WriteCrtcRegister
 
 	;	we're now ready to replace the Tube handler code
+	jsr	InstallTubeHandler
 
 	FREEZE
 
@@ -67,8 +69,10 @@
 .include "functions/DisableThingsThatWillSpoilTheExperience.asm"
 .include "functions/InstallHooks.asm"
 .include "functions/HooksSource.asm"
+.include "functions/InstallTubeHandler.asm"
 
 .include "../common/functions/WriteCrtcRegister.asm"
+.include "../common/functions/IncrementPointer16.asm"
 
 .include "data/introScreen/LogoCharacterDefinitions.asm"
 .include "data/introScreen/LogoCharacterWidths.asm"
@@ -83,6 +87,15 @@
 .include "data/introScreen/PresentsText.asm"
 .include "data/introScreen/DrawTextPixelAnd.asm"
 .include "data/introScreen/DrawTextPixelOr.asm"
+
+	;	this condition is likely to be true later on when
+	;	we extend the host Tube handler code
+.if (HOST_TUBE_HANDLER_NEXT_FREE_BYTE - HOST_TUBE_START_ADDRESS) > $100
+.include "data/hostTubeHandler/HostTubeHandlerTransferValues.asm"
+.endif
+
+HostTubeHandlerSource
+.incbin "../../asm-temp/hostTubeHandler.dat"
 
 	;	this will be used to check that the next file
 	;	in the boot sequence is from the same build
